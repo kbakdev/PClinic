@@ -17,7 +17,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" th:href="@{/resources/css/webapp.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/html5-boilerplate.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/normalize.css}"/>
 
 </head>
 
@@ -49,14 +51,14 @@
                     <span>Home</span>
                 </li>
 
-                <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Find owners')">
+                <li th:replace="::menuItem ('/clients/find','clients','find clients','search','Find clients')">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <span>Find owners</span>
+                    <span>Find clients</span>
                 </li>
 
-                <li th:replace="::menuItem ('/workers.html','works','workers','th-list','Workers')">
+                <li th:replace="::menuItem ('/servicers.html','servicers','servicemans','th-list','Servicemans')">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    <span>Workers</span>
+                    <span>Servicemans</span>
                 </li>
 
                 <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">

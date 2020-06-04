@@ -1,10 +1,10 @@
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+      th:replace="~{fragments/layout :: layout (~{::body},'clients')}">
 
 <body>
 
-<h2>Owner</h2>
-<form th:object="${owner}" class="form-horizontal" id="add-owner-form" method="post">
+<h2>Client</h2>
+<form th:object="${client}" class="form-horizontal" id="add-client-form" method="post">
     <div class="form-group has-feedback">
         <input
                 th:replace="~{fragments/inputField :: input ('First Name', 'firstName', 'text')}" />
@@ -20,9 +20,9 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button
-                    th:with="text=${owner['new']} ? 'Add Owner' : 'Update Owner'"
+                    th:with="text=${client['new']} ? 'Add Client' : 'Update Client'"
                     class="btn btn-default" type="submit" th:text="${text}">Add
-                Owner</button>
+                Client</button>
         </div>
     </div>
 </form>

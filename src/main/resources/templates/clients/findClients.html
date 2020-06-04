@@ -1,12 +1,12 @@
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+      th:replace="~{fragments/layout :: layout (~{::body},'clients')}">
 
 <body>
 
-<h2>Find Owners</h2>
+<h2>Find Clients</h2>
 
-<form th:object="${owner}" th:action="@{/owners}" method="get"
-      class="form-horizontal" id="search-owner-form">
+<form th:object="${client}" th:action="@{/clients}" method="get"
+      class="form-horizontal" id="search-client-form">
     <div class="form-group">
         <div class="control-group" id="lastNameGroup">
             <label class="col-sm-2 control-label">Last name </label>
@@ -22,14 +22,14 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Find
-                Owner</button>
+                Client</button>
         </div>
     </div>
 
 </form>
 
 <br />
-<a class="btn btn-default" th:href="@{/owners/new}">Add Owner</a>
+<a class="btn btn-default" th:href="@{/clients/new}">Add Client</a>
 
 </body>
 </html>

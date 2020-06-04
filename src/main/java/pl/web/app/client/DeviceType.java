@@ -1,4 +1,10 @@
 package pl.web.app.client;
 
-public class DeviceType {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "types")
+public class DeviceType extends pl.web.app.model.NamedEntity {
+
 }

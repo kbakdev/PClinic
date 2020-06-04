@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'servicers')}">
+
 <body>
-$END$
+
+<h2>Servicemans</h2>
+
+<table id="servicers" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Specialties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="servicer : ${servicers.servicerList}">
+        <td th:text="${servicer.firstName + ' ' + servicer.lastName}"></td>
+        <td><span th:each="specialty : ${servicer.specialties}"
+                  th:text="${specialty.name + ' '}" /> <span
+                th:if="${servicer.nrOfSpecialties == 0}">none</span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
