@@ -112,6 +112,13 @@
 			<artifactId>bootstrap</artifactId>
 			<version>${webjars-bootstrap.version}</version>
 		</dependency>
+		<!-- Bulma -->
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>bulma</artifactId>
+			<version>0.8.0</version>
+		</dependency>
+		<!-- end of Bulma -->
 		<!-- end of webjars -->
 
 		<!-- Testing -->

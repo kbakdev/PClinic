@@ -21,56 +21,82 @@
     <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/resources/css/normalize.css}"/>
 
+    <link rel="stylesheet" th:href="@{/resources/css/all.css}"/>
+
+    <link rel="stylesheet" href="/webjars/bulma/css/bulma.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/default/bulmaswatch.min.css">
+    <link rel="stylesheet" th:href="@{/resources/css/fontandglitch.css}"/>
+
+    <script src="javascripts/tabs.js"></script><script src="javascripts/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/5165e8b283.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" th:href="@{/}"><span></span></a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-                <span class="sr-only"><os-p>Toggle navigation</os-p></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+<div class="is-hidden-mobile" id="particles-js"></div>
+
+    <section class="hero is-dark">
+        <div class="hero-head">
+            
+            <nav id="navMenu" class="navbar" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+
+                        <a class="navbar-item" href="https://github.com/Sejkii-bot">
+                            <img alt="webapp logo" src="/resources/images/favicon.ico"/>
+                        </a>
+
+                        <span class="navbar-item has-text-primary has-text-orbitron">Kacper 'sejki'</span>
+
+                        <div id="navbar-burger-id" class="navbar-burger burger" aria-label="menu">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div id="navbar-menu-id" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">
+                                <span class="icon">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span>Home</span>
+                            </a>
+
+                            <a class="navbar-item" href="/clients/find">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <span>Find Clients</span>
+                            </a>
+
+                            <a class="navbar-item" href="/servicers.html">
+                                <span class="icon">
+                                    <i class="fas fa-tools"></i>
+                                </span>
+                                <span>Servicemans</span>
+                            </a>
+
+                            <a class="navbar-item" href="/oups">
+                                <span class="icon">
+                                    <i class="fas fa-bug"></i>
+
+                                    </i>
+                                </span>
+                                <span>Error</span>
+                            </a>
+                            <div class="navbar-end">
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <div class="navbar-collapse collapse" id="main-navbar">
-            <ul class="nav navbar-nav navbar-right">
-
-                <li th:fragment="menuItem (path,active,title,glyph,text)" class="active" th:class="${active==menu ? 'active' : ''}">
-                    <a th:href="@{__${path}__}" th:title="${title}">
-                        <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                        <span th:text="${text}">Template</span>
-                    </a>
-                </li>
-
-                <li th:replace="::menuItem ('/','home','home page','home','Home')">
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    <span>Home</span>
-                </li>
-
-                <li th:replace="::menuItem ('/clients/find','clients','find clients','search','Find clients')">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <span>Find clients</span>
-                </li>
-
-                <li th:replace="::menuItem ('/servicers.html','servicers','servicemans','th-list','Servicemans')">
-                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    <span>Servicemans</span>
-                </li>
-
-                <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
-                    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                    <span>Error</span>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
+    </section>
+    
 <div class="container-fluid">
+
     <div class="container xd-container">
 
         <th:block th:include="${template}"/>
@@ -88,6 +114,9 @@
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/resources/javascripts/jqueryfix.js}"></script>
+    <script th:src="@{/resources/javascripts/particlesjs.js}"></script>
+    <script th:src="@{/resources/javascripts/animated-background.js}"></script>
 
 </body>
 
