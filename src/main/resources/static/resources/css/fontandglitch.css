@@ -3,6 +3,7 @@
   display: none;
   list-style: none;
 }
+
 .tabs-content li.is-active {
   display: block;
 }
@@ -41,14 +42,14 @@ section.section {
 }
 .glitch-container .glitch {
   color: #fff;
-  font-size: 10em;
+  font-size: 4em;
   position: relative;
   font-family: 'Orbitron';
   font-weight: 700;
 }
 .glitch-container .glitch::before,
 .glitch-container .glitch::after {
-  content: 'noraj';
+  content: 'PClinic';
   position: absolute;
   top: 0;
   left: 0;
@@ -82,6 +83,7 @@ canvas {
   background-position: 50% 50%;
   width: 100%;
   height: 100%;
+  background-color: black;
 }
 @-webkit-keyframes glitch {
   0% {

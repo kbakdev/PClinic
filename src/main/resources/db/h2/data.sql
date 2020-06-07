@@ -4,6 +4,9 @@ INSERT INTO servicers VALUES (3, 'Linda', 'Douglas');
 INSERT INTO servicers VALUES (4, 'Rafael', 'Ortega');
 INSERT INTO servicers VALUES (5, 'Henry', 'Stevens');
 INSERT INTO servicers VALUES (6, 'Sharon', 'Jenkins');
+INSERT INTO servicers VALUES (7, 'Jaxon', 'Kingston');
+INSERT INTO servicers VALUES (8, 'Kenny', 'Rodriguez');
+INSERT INTO servicers VALUES (9, 'John', 'Stone');
 
 INSERT INTO specialties VALUES (1, 'Full-stack Software Developer');
 INSERT INTO specialties VALUES (2, 'IT Project Manager');
@@ -16,11 +19,15 @@ INSERT INTO specialties VALUES (8, 'Big Data Expert');
 INSERT INTO specialties VALUES (9, 'Specialist in machine learning and artificial intelligence');
 
 
-INSERT INTO servicer_specialties VALUES (2, 1);
-INSERT INTO servicer_specialties VALUES (3, 2);
+INSERT INTO servicer_specialties VALUES (1, 1);
+INSERT INTO servicer_specialties VALUES (2, 2);
 INSERT INTO servicer_specialties VALUES (3, 3);
-INSERT INTO servicer_specialties VALUES (4, 2);
-INSERT INTO servicer_specialties VALUES (5, 1);
+INSERT INTO servicer_specialties VALUES (4, 4);
+INSERT INTO servicer_specialties VALUES (5, 5);
+INSERT INTO servicer_specialties VALUES (6, 6);
+INSERT INTO servicer_specialties VALUES (7, 7);
+INSERT INTO servicer_specialties VALUES (8, 8);
+INSERT INTO servicer_specialties VALUES (9, 9);
 
 INSERT INTO types VALUES (1, 'supercomputer');
 INSERT INTO types VALUES (2, 'mainframe');

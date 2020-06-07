@@ -1,35 +1,79 @@
+<!DOCTYPE html>
+
 <html xmlns:th="https://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout (~{::body},'clients')}">
 
 <body>
 
-<h2>Find Clients</h2>
+<table class="table table-striped" th:object="${client}" style="background: center; font:-webkit-control;color: white;">
+    <tr>
+        <th style="font-family: Orbitron;color: 00d1b2;">Name</th>
+        <td style="font-family: Orbitron;color: 00d1b2;"><b th:text="*{firstName + ' ' + lastName}"></b></td>
+    </tr>
+    <tr>
+        <th style="font-family: Orbitron;color: 00d1b2;">Address</th>
+        <td th:text="*{address}" /></td>
+    </tr>
+    <tr>
+        <th style="font-family: Orbitron;color: 00d1b2;">City</th>
+        <td th:text="*{city}" /></td>
+    </tr>
+    <tr>
+        <th style="font-family: Orbitron;color: 00d1b2;">Telephone</th>
+        <td th:text="*{telephone}" /></td>
+    </tr>
+</table>
 
-<form th:object="${client}" th:action="@{/clients}" method="get"
-      class="form-horizontal" id="search-client-form">
-    <div class="form-group">
-        <div class="control-group" id="lastNameGroup">
-            <label class="col-sm-2 control-label">Last name </label>
-            <div class="col-sm-10">
-                <input class="form-control" th:field="*{lastName}" size="30"
-                       maxlength="80" /> <span class="help-inline"><div
-                    th:if="${#fields.hasAnyErrors()}">
-              <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
-            </div></span>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Find
-                Client</button>
-        </div>
-    </div>
-
-</form>
+<a th:href="@{{id}/edit(id=${client.id})}" class="btn btn-default">Edit
+    Client</a>
+<a th:href="@{{id}/devices/new(id=${client.id})}" class="btn btn-default">Add
+    New Device</a>
 
 <br />
-<a class="btn btn-default" th:href="@{/clients/new}">Add Client</a>
+<br />
+<br />
+<h2>Devices and Visits</h2>
+
+<table class="table table-striped">
+
+    <tr th:each="device : ${client.devices}">
+        <td valign="top">
+            <dl class="dl-horizontal">
+                <dt>Name</dt>
+                <dd th:text="${device.name}" /></dd>
+                <dt>Bought Date</dt>
+                <dd
+                        th:text="${#temporals.format(device.boughtDate, 'yyyy-MM-dd')}" /></dd>
+                <dt>Type</dt>
+                <dd th:text="${device.type}" /></dd>
+            </dl>
+        </td>
+        <td valign="top">
+            <table class="table-condensed">
+                <thead>
+                <tr>
+                    <th>Visit Date</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tr th:each="visit : ${device.visits}">
+                    <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${visit?.description}"></td>
+                </tr>
+                <tr>
+                    <td><a
+                            th:href="@{{clientId}/devices/{deviceId}/edit(clientId=${client.id},deviceId=${device.id})}">Edit
+                        Device</a></td>
+                    <td><a
+                            th:href="@{{clientId}/devices/{deviceId}/visits/new(clientId=${client.id},deviceId=${device.id})}">Add
+                        Visit</a></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
 
 </body>
+
 </html>
