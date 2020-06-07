@@ -20,7 +20,7 @@ public interface DeviceRepository extends Repository<Device, Integer> {
      * Retrieve all {@link DeviceType}s from the data store.
      * @return a Collection of {@link DeviceType}s.
      */
-    @Query("SELECT ptype FROM DeviceType ptype ORDER BY ptype.name")
+    @Query("SELECT type FROM DeviceType type ORDER BY type.name")
     @Transactional(readOnly = true)
     List<DeviceType> findDeviceTypes();
 

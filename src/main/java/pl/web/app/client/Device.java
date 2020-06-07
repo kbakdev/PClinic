@@ -20,6 +20,9 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import pl.web.app.visit.Visit;
+import pl.web.app.model.NamedEntity;
+
 @Entity
 @Table(name = "devices")
 public class Device extends pl.web.app.model.NamedEntity {

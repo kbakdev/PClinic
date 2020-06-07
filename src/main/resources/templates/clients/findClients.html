@@ -3,17 +3,17 @@
 
 <body>
 
-<h2 style="font-family: Orbitron;color: 00d1b2;">Find Clients</h2>
+<h2 style="font-family: Orbitron;color: 00d1b2;padding: 20;">Find Clients</h2>
 
 <form th:object="${client}" th:action="@{/clients}" method="get"
       class="form-horizontal" id="search-client-form">
-    <div class="form-group">
+    <div class="form-group" style="padding: 20;">
         <div class="control-group" id="lastNameGroup">
             <label class="col-sm-2 control-label" style="color: white;font-family:Orbitron;">Last name </label>
             <div class="col-sm-10">
                 <input class="form-control" th:field="*{lastName}" size="30"
                        maxlength="80" /> <span class="help-inline"><div
-                    th:if="${#fields.hasAnyErrors()}">
+                    th:if="${#fields.hasAnyErrors()}" style="padding: 10; color: crimson; font-family: Orbitron;">
               <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
             </div></span>
             </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" style="font-family: Orbitron; color: #00d1b2;mix-blend-mode: difference;background-color: black;">Find
+            <button type="submit" class="btn btn-default" style="font-family: Orbitron; color: #00d1b2;mix-blend-mode: difference;background-color: black;padding: 10;">Find
                 Client</button>
         </div>
     </div>
@@ -29,7 +29,6 @@
 </form>
 
 <br />
-<a class="btn btn-default" th:href="@{/clients/new}" style="font-family: Orbitron;">Add Client</a>
 
 </body>
 </html>

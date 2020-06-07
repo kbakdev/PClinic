@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     <tr th:each="servicer : ${servicers.servicerList}">
-        <td th:text="${servicer.firstName + ' ' + servicer.lastName}"></td>
+        <td th:text="${servicer.firstName + ' ' + servicer.lastName}" style="font-family: Orbitron;"></td>
         <td><span th:each="specialty : ${servicer.specialties}"
                   th:text="${specialty.name + ' '}" /> <span
                 th:if="${servicer.nrOfSpecialties == 0}">none</span></td>

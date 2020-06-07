@@ -9,14 +9,14 @@
     <tr>
         <th style="width: 150px; color: #00d1b2;font-family: Orbitron;">Name</th>
         <th style="width: 200px; color: #00d1b2;font-family: Orbitron;">Address</th>
-        <th>City</th>
+        <th style="width: 200px; color: #00d1b2;font-family: Orbitron;">City</th>
         <th style="width: 120px; color: #00d1b2;font-family: Orbitron;">Telephone</th>
         <th style="color: #00d1b2;font-family: Orbitron;">Devices</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="client : ${selections}">
-        <td>
+        <td style="font-family: Orbitron;">
             <a th:href="@{/clients/__${client.id}__}" th:text="${client.firstName + ' ' + client.lastName}"/></a>
         </td>
         <td th:text="${client.address}"/>

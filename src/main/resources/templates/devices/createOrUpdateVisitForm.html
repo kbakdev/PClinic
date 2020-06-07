@@ -3,57 +3,60 @@
 
 <body>
 
-<h2>
+<h2 style="font-family: Orbitron; color: #00d1b2; padding: 20px;">
     <th:block th:if="${visit['new']}">New </th:block>
     Visit
 </h2>
-
-<b>Device</b>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Bought Date</th>
-        <th>Type</th>
-        <th>Client</th>
+<hr>
+<b style="font-family: Orbitron; color: #00d1b2; padding: 20px;">Device</b>
+<hr>
+<table class="table table-striped" style="background: transparent;">
+    <thead style="background-color: transparent; background: transparent;">
+    <tr style="color: transparent; background-color: transparent;">
+        <th style="font-family: Orbitron; color: #00d1b2;">Name</th>
+        <th style="font-family: Orbitron; color: #00d1b2;">Bought Date</th>
+        <th style="font-family: Orbitron; color: #00d1b2;">Type</th>
+        <th style="font-family: Orbitron; color: #00d1b2;">Client</th>
     </tr>
     </thead>
     <tr>
-        <td th:text="${device.name}" /></td>
+        <td th:text="${device.name}" style="color: white;" /></td>
         <td
-                th:text="${#temporals.format(device.boughtDate, 'yyyy-MM-dd')}" /></td>
-        <td th:text="${device.type}" /></td>
+                th:text="${#temporals.format(device.boughtDate, 'yyyy-MM-dd')}"  style="color: white;"/></td>
+        <td th:text="${device.type}" style="color: white;"/></td>
         <td
-                th:text="${device.client?.firstName + ' ' + device.client?.lastName}" /></td>
+                th:text="${device.client?.firstName + ' ' + device.client?.lastName}" style="color: white;"/></td>
     </tr>
 </table>
 
 <form th:object="${visit}" class="form-horizontal" method="post">
-    <div class="form-group has-feedback">
+    <div class="form-group has-feedback" style="font-family: Orbitron; color: white;">
         <input
-                th:replace="~{fragments/inputField :: input ('Date', 'date', 'date')}"  />
+                th:replace="~{fragments/inputField :: input ('Date', 'date', 'date')}" style="font-family: Orbitron; color: #00d1b2;" />
         <input
-                th:replace="~{fragments/inputField :: input ('Description', 'description', 'text')}" />
+                th:replace="~{fragments/inputField :: input ('Description', 'description', 'text')}" style="font-family: Orbitron; color: #00d1b2;" />
     </div>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-2 col-sm-10" style="padding: 20px;">
             <input type="hidden" name="deviceId" th:value="${device.id}" />
-            <button class="btn btn-default" type="submit">Add Visit</button>
+            <button class="btn btn-default" type="submit" style="font-family: Orbitron; color: #00d1b2;mix-blend-mode: difference;background-color: black;padding: 10;">Add Visit</button>
         </div>
     </div>
 </form>
 
 <br />
-<b>Previous Visits</b>
-<table class="table table-striped">
+<hr>
+<b style="font-family: Orbitron; color: #00d1b2;">Previous Visits</b>
+<hr>
+<table class="table table-striped" style="background: transparent;">
     <tr>
-        <th>Date</th>
-        <th>Description</th>
+        <th style="font-family: Orbitron; color: #00d1b2; padding: 20px;">Date</th>
+        <th style="font-family: Orbitron; color: #00d1b2; padding: 20px;">Description</th>
     </tr>
     <tr th:if="${!visit['new']}" th:each="visit : ${device.visits}">
-        <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}" /></td>
-        <td th:text=" ${visit.description}" /></td>
+        <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}" style="color: white;"/></td>
+        <td th:text=" ${visit.description}" style="color: white;" /></td>
     </tr>
 </table>
 
