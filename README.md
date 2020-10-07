@@ -1,1 +1,1 @@
-Po prostu pobierz aplikację, otwórz ją w środowisku IDE IntelliJIDEA.
+Just download the application, open it in the IntelliJ IDEA IDE.
