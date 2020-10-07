@@ -1,1 +1,1 @@
-A web application with a built-in interface and a database for a computer service.
+Po prostu pobierz aplikację, otwórz ją w środowisku IDE IntelliJIDEA.
