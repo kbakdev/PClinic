@@ -24,6 +24,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
 </head>
 
 <body style="background-color:black;">
@@ -36,7 +39,7 @@
             <div class="navbar-brand">
 
                 <a class="navbar-item" href="https://github.com/53jk1">
-                    <img alt="webapp logo" src="resources/images/favicon.ico"/>
+                    <img alt="logo" src="/resources/images/favicon.ico"/>
                 </a>
 
                 <span class="navbar-item has-text-primary has-text-orbitron">PClinic</span>
@@ -79,7 +82,7 @@
                         <span>Servicemans</span>
                     </a>
 
-                    <a class="navbar-item" href="/h2-console/" style="color: #00d1b2;">
+                    <a class="navbar-item" href="//h2-console/login.jsp" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-database"></i>
                             </span>
@@ -89,8 +92,6 @@
                     <a class="navbar-item" href="/oups" style="color: #00d1b2;">
                                 <span class="icon">
                                     <i class="fas fa-bug"></i>
-
-                                    </i>
                                 </span>
                         <span>Bug</span>
                     </a>
@@ -124,7 +125,8 @@
 <script th:src="@{/resources/javascripts/jqueryfix.js}"></script>
 <script th:src="@{/resources/javascripts/particlesjs.js}"></script>
 <script th:src="@{/resources/javascripts/animated-background.js}"></script>
-<script src="/javascripts/tabs.js"></script><script src="/javascripts/navbar.js"></script>
+<script th:src="@{/resources/javascripts/tabs.js}"></script>
+<script th:src="@{/resources/javascripts/navbar.js}"></script>
 <script src="https://kit.fontawesome.com/5165e8b283.js" crossorigin="anonymous"></script>
 
 </body>
