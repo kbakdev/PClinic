@@ -14,30 +14,30 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface ClientRepository extends Repository<Client, Integer> {
 
-    /**
-     * Retrieve {@link Client}s from the data store by last name, returning all clients
-     * whose last name <i>starts</i> with the given name.
-     * @param lastName Value to search for
-     * @return a Collection of matching {@link Client}s (or an empty Collection if none
-     * found)
-     */
-    @Query("SELECT DISTINCT client FROM Client client left join fetch client.devices WHERE client.lastName LIKE :lastName%")
-    @Transactional(readOnly = true)
-    Collection<Client> findByLastName(@Param("lastName") String lastName);
+	/**
+	 * Retrieve {@link Client}s from the data store by last name, returning all clients
+	 * whose last name <i>starts</i> with the given name.
+	 * @param lastName Value to search for
+	 * @return a Collection of matching {@link Client}s (or an empty Collection if none
+	 * found)
+	 */
+	@Query("SELECT DISTINCT client FROM Client client left join fetch client.devices WHERE client.lastName LIKE :lastName%")
+	@Transactional(readOnly = true)
+	Collection<Client> findByLastName(@Param("lastName") String lastName);
 
-    /**
-     * Retrieve an {@link Client} from the data store by id.
-     * @param id the id to search for
-     * @return the {@link Client} if found
-     */
-    @Query("SELECT client FROM Client client left join fetch client.devices WHERE client.id =:id")
-    @Transactional(readOnly = true)
-    Client findById(@Param("id") Integer id);
+	/**
+	 * Retrieve an {@link Client} from the data store by id.
+	 * @param id the id to search for
+	 * @return the {@link Client} if found
+	 */
+	@Query("SELECT client FROM Client client left join fetch client.devices WHERE client.id =:id")
+	@Transactional(readOnly = true)
+	Client findById(@Param("id") Integer id);
 
-    /**
-     * Save an {@link Client} to the data store, either inserting or updating it.
-     * @param client the {@link Client} to save
-     */
-    void save(Client client);
+	/**
+	 * Save an {@link Client} to the data store, either inserting or updating it.
+	 * @param client the {@link Client} to save
+	 */
+	void save(Client client);
 
 }
