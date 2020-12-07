@@ -1,5 +1,7 @@
 <!doctype html>
-<html th:fragment="layout (template, menu)">
+<html lang="en" xml:lang="en"
+      th:fragment="layout (template, menu)"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -12,23 +14,13 @@
 
     <title>PClinic</title>
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <link rel="stylesheet" th:href="@{/resources/css/html5-boilerplate.css}"/>
     <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/resources/css/normalize.css}"/>
 
     <link rel="stylesheet" th:href="@{/resources/css/all.css}"/>
 
-    <link rel="stylesheet" href="/webjars/bulma/css/bulma.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/default/bulmaswatch.min.css">
     <link rel="stylesheet" th:href="@{/resources/css/fontandglitch.css}"/>
-
-    <script src="javascripts/tabs.js"></script><script src="javascripts/navbar.js"></script>
-    <script src="https://kit.fontawesome.com/5165e8b283.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 
@@ -40,74 +32,73 @@
 
 <section class="hero is-dark" style="background-color: black;">
     <div class="hero-head">
-        <nav id="navMenu" class="navbar" role="navigation" aria-label="main navigation">
-            <div class="container">
-                <div class="navbar-brand">
+        <div class="container">
+            <div class="navbar-brand">
 
-                    <a class="navbar-item" href="https://github.com/Sejkii-bot">
-                        <img alt="webapp logo" src="/resources/images/favicon.ico"/>
-                    </a>
+                <a class="navbar-item" href="https://github.com/53jk1">
+                    <img alt="webapp logo" src="resources/images/favicon.ico"/>
+                </a>
 
-                    <span class="navbar-item has-text-primary has-text-orbitron">PClinic</span>
+                <span class="navbar-item has-text-primary has-text-orbitron">PClinic</span>
 
-                    <div id="navbar-burger-id" class="navbar-burger burger" aria-label="menu">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </div>
+                <div id="navbar-burger-id" class="navbar-burger burger" aria-label="menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </div>
+            </div>
 
-                <div id="navbar-menu-id" class="navbar-menu" style="background: transparent;">
-                    <div class="navbar-start">
+            <div id="navbar-menu-id" class="navbar-menu" style="background: transparent;">
+                <div class="navbar-start">
 
-                        <a class="navbar-item" href="/" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-home"></i>
                             </span>
-                            <span>Home</span>
-                        </a>
+                        <span>Home</span>
+                    </a>
 
-                        <a class="navbar-item" href="/clients/find" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/clients/find" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
-                            <span>Find Clients</span>
-                        </a>
+                        <span>Find Clients</span>
+                    </a>
 
-                        <a class="navbar-item" href="/clients/new" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/clients/new" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-user-plus"></i>
                             </span>
-                            <span>Add Client</span>
-                        </a>
+                        <span>Add Client</span>
+                    </a>
 
-                        <a class="navbar-item" href="/servicers.html" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/servicers.html" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-tools"></i>
                             </span>
-                            <span>Servicemans</span>
-                        </a>
+                        <span>Servicemans</span>
+                    </a>
 
-                        <a class="navbar-item" href="/h2-console" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/h2-console/" style="color: #00d1b2;">
                             <span class="icon">
                                 <i class="fas fa-database"></i>
                             </span>
-                            <span>Database Console</span>
-                        </a>
+                        <span>Database Console</span>
+                    </a>
 
-                        <a class="navbar-item" href="/oups" style="color: #00d1b2;">
+                    <a class="navbar-item" href="/oups" style="color: #00d1b2;">
                                 <span class="icon">
                                     <i class="fas fa-bug"></i>
 
                                     </i>
                                 </span>
-                                <span>Bug</span>
-                            </a>
-                        
-                            <div class="navbar-end"></div>
-                    </div>
+                        <span>Bug</span>
+                    </a>
+
+                    <div class="navbar-end"></div>
                 </div>
-        </nav>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -133,6 +124,8 @@
 <script th:src="@{/resources/javascripts/jqueryfix.js}"></script>
 <script th:src="@{/resources/javascripts/particlesjs.js}"></script>
 <script th:src="@{/resources/javascripts/animated-background.js}"></script>
+<script src="/javascripts/tabs.js"></script><script src="/javascripts/navbar.js"></script>
+<script src="https://kit.fontawesome.com/5165e8b283.js" crossorigin="anonymous"></script>
 
 </body>
 
