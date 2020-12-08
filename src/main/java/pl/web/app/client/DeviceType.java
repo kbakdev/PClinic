@@ -4,7 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @author Kacper Bąk Device can be a smartphone, computer, laptop, etc...
+ * @author Kacper Bąk
+ * Device can be a smartphone, computer, laptop, etc...
  */
 
 @Entity

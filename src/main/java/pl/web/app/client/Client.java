@@ -22,105 +22,105 @@ import org.springframework.core.style.ToStringCreator;
 @Table(name = "clients")
 public class Client extends pl.web.app.model.Person {
 
-	@Column(name = "address")
-	@NotEmpty
-	private String address;
+    @Column(name = "address")
+    @NotEmpty
+    private String address;
 
-	@Column(name = "city")
-	@NotEmpty
-	private String city;
+    @Column(name = "city")
+    @NotEmpty
+    private String city;
 
-	@Column(name = "telephone")
-	@NotEmpty
-	@Digits(fraction = 0, integer = 10)
-	private String telephone;
+    @Column(name = "telephone")
+    @NotEmpty
+    @Digits(fraction = 0, integer = 10)
+    private String telephone;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-	private Set<pl.web.app.client.Device> devices;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    private Set<pl.web.app.client.Device> devices;
 
-	public String getAddress() {
-		return this.address;
-	}
+    public String getAddress() {
+        return this.address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getCity() {
-		return this.city;
-	}
+    public String getCity() {
+        return this.city;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public String getTelephone() {
-		return this.telephone;
-	}
+    public String getTelephone() {
+        return this.telephone;
+    }
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
 
-	protected Set<pl.web.app.client.Device> getDevicesInternal() {
-		if (this.devices == null) {
-			this.devices = new HashSet<>();
-		}
-		return this.devices;
-	}
+    protected Set<pl.web.app.client.Device> getDevicesInternal() {
+        if (this.devices == null) {
+            this.devices = new HashSet<>();
+        }
+        return this.devices;
+    }
 
-	protected void setDevicesInternal(Set<pl.web.app.client.Device> devices) {
-		this.devices = devices;
-	}
+    protected void setDevicesInternal(Set<pl.web.app.client.Device> devices) {
+        this.devices = devices;
+    }
 
-	public List<pl.web.app.client.Device> getDevices() {
-		List<pl.web.app.client.Device> sortedDevices = new ArrayList<>(getDevicesInternal());
-		PropertyComparator.sort(sortedDevices, new MutableSortDefinition("name", true, true));
-		return Collections.unmodifiableList(sortedDevices);
-	}
+    public List<pl.web.app.client.Device> getDevices() {
+        List<pl.web.app.client.Device> sortedDevices = new ArrayList<>(getDevicesInternal());
+        PropertyComparator.sort(sortedDevices, new MutableSortDefinition("name", true, true));
+        return Collections.unmodifiableList(sortedDevices);
+    }
 
-	public void addDevice(pl.web.app.client.Device device) {
-		if (device.isNew()) {
-			getDevicesInternal().add(device);
-		}
-		device.setClient(this);
-	}
+    public void addDevice(pl.web.app.client.Device device) {
+        if (device.isNew()) {
+            getDevicesInternal().add(device);
+        }
+        device.setClient(this);
+    }
 
-	/**
-	 * Return the Device with the given name, or null if none found for this Client.
-	 * @param name to test
-	 * @return true if device name is already in use
-	 */
-	public pl.web.app.client.Device getDevice(String name) {
-		return getDevice(name, false);
-	}
+    /**
+     * Return the Device with the given name, or null if none found for this Client.
+     * @param name to test
+     * @return true if device name is already in use
+     */
+    public pl.web.app.client.Device getDevice(String name) {
+        return getDevice(name, false);
+    }
 
-	/**
-	 * Return the Device with the given name, or null if none found for this Client.
-	 * @param name to test
-	 * @return true if device name is already in use
-	 */
-	public pl.web.app.client.Device getDevice(String name, boolean ignoreNew) {
-		name = name.toLowerCase();
-		for (pl.web.app.client.Device device : getDevicesInternal()) {
-			if (!ignoreNew || !device.isNew()) {
-				String compName = device.getName();
-				compName = compName.toLowerCase();
-				if (compName.equals(name)) {
-					return device;
-				}
-			}
-		}
-		return null;
-	}
+    /**
+     * Return the Device with the given name, or null if none found for this Client.
+     * @param name to test
+     * @return true if device name is already in use
+     */
+    public pl.web.app.client.Device getDevice(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (pl.web.app.client.Device device : getDevicesInternal()) {
+            if (!ignoreNew || !device.isNew()) {
+                String compName = device.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return device;
+                }
+            }
+        }
+        return null;
+    }
 
-	@Override
-	public String toString() {
-		return new ToStringCreator(this)
+    @Override
+    public String toString() {
+        return new ToStringCreator(this)
 
-				.append("id", this.getId()).append("new", this.isNew()).append("lastName", this.getLastName())
-				.append("firstName", this.getFirstName()).append("address", this.address).append("city", this.city)
-				.append("telephone", this.telephone).toString();
-	}
+                .append("id", this.getId()).append("new", this.isNew()).append("lastName", this.getLastName())
+                .append("firstName", this.getFirstName()).append("address", this.address).append("city", this.city)
+                .append("telephone", this.telephone).toString();
+    }
 
 }

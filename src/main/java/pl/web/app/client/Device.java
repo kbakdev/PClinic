@@ -27,65 +27,65 @@ import pl.web.app.model.NamedEntity;
 @Table(name = "devices")
 public class Device extends pl.web.app.model.NamedEntity {
 
-	@Column(name = "bought_date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate boughtDate;
+    @Column(name = "bought_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate boughtDate;
 
-	@ManyToOne
-	@JoinColumn(name = "type_id")
-	private DeviceType type;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private DeviceType type;
 
-	@ManyToOne
-	@JoinColumn(name = "client_id")
-	private Client client;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-	@Transient
-	private Set<pl.web.app.visit.Visit> visits = new LinkedHashSet<>();
+    @Transient
+    private Set<pl.web.app.visit.Visit> visits = new LinkedHashSet<>();
 
-	public void setBoughtDate(LocalDate boughtDate) {
-		this.boughtDate = boughtDate;
-	}
+    public void setBoughtDate(LocalDate boughtDate) {
+        this.boughtDate = boughtDate;
+    }
 
-	public LocalDate getBoughtDate() {
-		return this.boughtDate;
-	}
+    public LocalDate getBoughtDate() {
+        return this.boughtDate;
+    }
 
-	public DeviceType getType() {
-		return this.type;
-	}
+    public DeviceType getType() {
+        return this.type;
+    }
 
-	public void setType(DeviceType type) {
-		this.type = type;
-	}
+    public void setType(DeviceType type) {
+        this.type = type;
+    }
 
-	public Client getClient() {
-		return this.client;
-	}
+    public Client getClient() {
+        return this.client;
+    }
 
-	protected void setClient(Client client) {
-		this.client = client;
-	}
+    protected void setClient(Client client) {
+        this.client = client;
+    }
 
-	protected Set<pl.web.app.visit.Visit> getVisitsInternal() {
-		if (this.visits == null) {
-			this.visits = new HashSet<>();
-		}
-		return this.visits;
-	}
+    protected Set<pl.web.app.visit.Visit> getVisitsInternal() {
+        if (this.visits == null) {
+            this.visits = new HashSet<>();
+        }
+        return this.visits;
+    }
 
-	protected void setVisitsInternal(Collection<pl.web.app.visit.Visit> visits) {
-		this.visits = new LinkedHashSet<>(visits);
-	}
+    protected void setVisitsInternal(Collection<pl.web.app.visit.Visit> visits) {
+        this.visits = new LinkedHashSet<>(visits);
+    }
 
-	public List<pl.web.app.visit.Visit> getVisits() {
-		List<pl.web.app.visit.Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
-		PropertyComparator.sort(sortedVisits, new MutableSortDefinition("date", false, false));
-		return Collections.unmodifiableList(sortedVisits);
-	}
+    public List<pl.web.app.visit.Visit> getVisits() {
+        List<pl.web.app.visit.Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
+        PropertyComparator.sort(sortedVisits, new MutableSortDefinition("date", false, false));
+        return Collections.unmodifiableList(sortedVisits);
+    }
 
-	public void addVisit(pl.web.app.visit.Visit visit) {
-		getVisitsInternal().add(visit);
-		visit.setDeviceId(this.getId());
-	}
+    public void addVisit(pl.web.app.visit.Visit visit) {
+        getVisitsInternal().add(visit);
+        visit.setDeviceId(this.getId());
+    }
 
 }

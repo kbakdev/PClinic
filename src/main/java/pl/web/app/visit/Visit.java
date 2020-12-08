@@ -17,46 +17,46 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "visits")
 public class Visit extends pl.web.app.model.BaseEntity {
 
-	@Column(name = "visit_date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate date;
+    @Column(name = "visit_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
-	@NotEmpty
-	@Column(name = "description")
-	private String description;
+    @NotEmpty
+    @Column(name = "description")
+    private String description;
 
-	@Column(name = "device_id")
-	private Integer deviceId;
+    @Column(name = "device_id")
+    private Integer deviceId;
 
-	/**
-	 * Creates a new instance of Visit for the current date
-	 */
-	public Visit() {
-		this.date = LocalDate.now();
-	}
+    /**
+     * Creates a new instance of Visit for the current date
+     */
+    public Visit() {
+        this.date = LocalDate.now();
+    }
 
-	public LocalDate getDate() {
-		return this.date;
-	}
+    public LocalDate getDate() {
+        return this.date;
+    }
 
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
-	public String getDescription() {
-		return this.description;
-	}
+    public String getDescription() {
+        return this.description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Integer getDeviceId() {
-		return this.deviceId;
-	}
+    public Integer getDeviceId() {
+        return this.deviceId;
+    }
 
-	public void setDeviceId(Integer deviceId) {
-		this.deviceId = deviceId;
-	}
+    public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
+    }
 
 }
